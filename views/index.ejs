@@ -14,10 +14,10 @@
                 <br>
 
                 <div id="card-body" class="card-body"> 
-                    <h3><%= questions.title %></h3>
+                    <a style="text-decoration:none" href="/question/<%= questions.id%>"><h3><%= questions.title %></h3></a>
                 </div>
                 <div class="card-footer">
-                    <button class="btn btn-primary">Answers</button>
+                    <a href="/question/<%= questions.id%>"><button class="btn btn-primary">Answers</button></a>
                 </div>
 
             <% }) %>

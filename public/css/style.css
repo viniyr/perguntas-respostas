@@ -1,6 +1,5 @@
 body { 
     background-color:#c1edef;
-    
 }
 
 #question-form { 
@@ -13,5 +12,7 @@ body {
 }
 
 #card-body { 
+    border: solid 1px lightslategrey;
+    border-radius: 8px;
     background-color:#ade7ea;
 }

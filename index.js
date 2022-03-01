@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get("/", (req,res) => { 
-    Question.findAll({raw: true}).then(questions => { 
+    Question.findAll({raw: true, order:[
+        ['id','DESC']
+    ]}).then(questions => { 
         res.render("index", { 
             questions: questions
         });
@@ -44,5 +46,23 @@ app.post("/save", (req,res) => {
     })
 
 });
+
+app.get("/question/:id", (req,res) => { 
+    var id = req.params.id;
+    Question.findOne({
+        where: {id: id}
+    }).then(question => { 
+        if(question != undefined) { 
+            res.render("question", { 
+                question : question
+            });
+        } else { 
+            res.redirect("/");
+        }
+    
+    });
+});
+
+
 
 app.listen(2201, () => { console.log("Listening on port 2201");});
