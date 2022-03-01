@@ -12,7 +12,47 @@ body {
 }
 
 #card-body { 
-    border: solid 1px lightslategrey;
-    border-radius: 8px;
+    border: solid 1px #ade7ea;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     background-color:#ade7ea;
+}
+
+#card-footer { 
+    border: solid 1px #ade7ea;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#answer-text{ 
+    margin-left: 40px;
+    height: fit-content;
+}
+
+#answer-author { 
+    margin-top:5px;
+    margin-left: 20px;
+    font-weight: 550;
+}
+
+#time { 
+    color: grey;
+    font-size: 10px;
+    display:inline-block;
+}
+
+#question { 
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+#question-title {
+    font-size:20px;
+    margin-left:15px;
+}
+
+#question-description { 
+    margin-left:30px;
 }

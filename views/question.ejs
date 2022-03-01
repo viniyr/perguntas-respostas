@@ -2,10 +2,38 @@
 
     <body>
         <%- include('partials/navbar.ejs'); %>
-
+        
         <div class="container">
-            <h1><%= question.title %></h1>
-            <p><%= question.description %></p>
+            <br>
+            <div id="question">
+                <h1 id="question-title"><%= question.title %></h1>
+                <p id="question-description"><%= question.description %></p>
+            </div>
+            <form method="POST" action="/answer">
+                <br>
+                <h3>Your Answer</h3>
+                <input type="text" name="authorName" class="form-control" placeholder="Whats your name?">
+                <br>
+                <textarea placeholder="Insert your anwser" class="form-control" name ="answerBody"></textarea>
+                <br>
+                <input type="hidden" name="question" value="<%= question.id %>">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+            <hr>
+            
+            <h3><%= quantity %> Anwsers to this question: </h3>
+            <br>
+            
+            <% answers.forEach(answer=>  { %>
+               <div class="card">
+                   <div id="answer-author"class="card-title"><%= answer.author %> <div id="time"><%= answer.created %></div></div>
+                   <div id="answer-text" class="card-text">
+                       <p><%= answer.body %></p>
+                   </div>
+               </div>
+               <hr>
+               <hr>
+            <%  }) %>
         </div>
     </body>
     <%- include('partials/footer.ejs'); %>
