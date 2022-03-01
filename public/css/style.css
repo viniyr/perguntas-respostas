@@ -1,7 +1,17 @@
 body { 
     background-color:#c1edef;
+    
 }
 
 #question-form { 
     margin-top: 5vh;
+}
+
+#btn-question { 
+    position: relative;
+    width: 280px;
+}
+
+#card-body { 
+    background-color:#ade7ea;
 }

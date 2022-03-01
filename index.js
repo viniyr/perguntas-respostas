@@ -20,9 +20,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.get("/", (req,res) => { 
-
-    var name = req.params.name;
-    res.render("index");
+    Question.findAll({raw: true}).then(questions => { 
+        res.render("index", { 
+            questions: questions
+        });
+    });
 });
 
 app.get("/question", (req,res) => { 
@@ -34,8 +36,13 @@ app.get("/question", (req,res) => {
 app.post("/save", (req,res) => { 
     var title = req.body.title;
     var description = req.body.description;
+    Question.create({ 
+        title: title,
+        description: description
+    }).then(()=> { 
+        res.redirect("/");
+    })
 
-    res.send("OK! " + title + " e " + description);    
 });
 
 app.listen(2201, () => { console.log("Listening on port 2201");});
